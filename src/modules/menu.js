@@ -5,6 +5,7 @@ import { createElement,
       hover,
       events,
       specialFunction1,
+      mouseLeave,
     } from '../DOM/dom';
 
 import '../styles/main.css'
@@ -58,22 +59,23 @@ const content = document.querySelector('#content');
 
         const burgerDiv = createElement('div', 'card');
         addClass(burgerDiv, 'burger');
-        burgerDiv.setAttribute('data-index', 2);
+        burgerDiv.setAttribute('data-index', 1);
 
         const hotDogDiv = createElement('div', 'card');
         addClass(hotDogDiv, 'hot-dog');
-        burgerDiv.setAttribute('data-index', 3);
+        hotDogDiv.setAttribute('data-index', 2);
 
         const chickenDiv = createElement('div', 'card');
         addClass(chickenDiv, 'chicken');
-        burgerDiv.setAttribute('data-index', 4);
+        chickenDiv.setAttribute('data-index', 3);
 
     appendElements(mainFood, [steakDiv, burgerDiv,hotDogDiv, chickenDiv ]);
 
 
     specialFunction1( [steakDiv,burgerDiv ,hotDogDiv, chickenDiv ])
     
-  events([hotDogDiv, steakDiv, chickenDiv, burgerDiv], 'mouseover',hover)
+  events([hotDogDiv, steakDiv, chickenDiv, burgerDiv], 'mouseover',hover);
+  events([hotDogDiv, steakDiv, chickenDiv, burgerDiv], 'mouseleave',mouseLeave)
   appendElements(containerMenu, [ mainFood]);
     appendElements(content, [nav, containerMenu])
 }

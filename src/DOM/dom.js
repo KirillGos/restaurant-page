@@ -23,8 +23,14 @@
  }
 
  export function hover(e) {
-    
-    
+    let index = e.target.dataset.index; 
+    let allhover = Array.from(document.querySelectorAll('.hoverMenu'));
+    allhover.map(item => {
+      if(item.dataset.index === index) {
+          item.classList.remove('hidden');
+          item.classList.add('visible');
+      }
+    })
 }
 
  export function events(element, event, Afunction) {
@@ -36,7 +42,28 @@
  export function specialFunction1(elements) {  
   for(let i = 0; i < elements.length; i++) {
     let newItem = createElement('div', 'hoverMenu');
+    newItem.classList.add('hidden');
     newItem.setAttribute('data-index', i);
+    if(i === 0) {
+      newItem.innerText = 'The Best Steak';
+    } else if(i === 1) {
+      newItem.innerText = 'The Best Burger';
+    } else if(i === 2) {
+      newItem.innerText = 'The Best Hod Dog';
+    } else if(i === 3) {
+      newItem.innerText = 'The Best Chicken';
+    }
     elements[i].appendChild(newItem);
   }
+ }
+
+ export function mouseLeave(e) {
+  let index = e.target.dataset.index; 
+  let allhover = Array.from(document.querySelectorAll('.hoverMenu'));
+  allhover.map(item => {
+    if(item.dataset.index === index) {
+      item.classList.remove('visible');
+      item.classList.add('hidden');
+    }
+  })
  }
