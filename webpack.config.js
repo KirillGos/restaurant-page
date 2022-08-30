@@ -1,20 +1,13 @@
 const path = require('path');
-const { ModuleFilenameHelpers } = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        filename: '[name].bundle.js',
+        filename: 'main.bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+        // clean: true,
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-          title: 'Output Management',
-          filename: 'index.html',
-        }),
-      ],
     module: {
         rules: [
           {
