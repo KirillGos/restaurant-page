@@ -52,6 +52,14 @@
       newItem.innerText = 'The Best Hod Dog';
     } else if(i === 3) {
       newItem.innerText = 'The Best Chicken';
+    } else if (i === 4) {
+      newItem.innerText = 'The Best Baklava';
+    } else if (i === 5) {
+      newItem.innerText = 'The Best Cheese Cake'
+    } else if ( i === 6) {
+      newItem.innerText = 'The Best Tea';
+    } else if (i === 7) {
+      newItem.innerText = 'The Best Soda'
     }
     elements[i].appendChild(newItem);
   }

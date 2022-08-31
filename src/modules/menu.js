@@ -13,17 +13,22 @@ import burgerImg from '../assets/burger.jpg';
 import steakImg from '../assets/steak.jpg';
 import chickenImg from '../assets/chicken.jpg';
 import hotDogImg from '../assets/hotdog.jpg';
-
-
-export const menu = function() {
+import baklavaImg from '../assets/baklava.jpg';
+import cheeseCakeImg from '../assets/cheeseCake.jpg';
+import teaImg from '../assets/tea.jpg';
+import sodaImg from '../assets/soda.jpg';
+import { about } from '../modules/about'
+export  function menu() {
 const content = document.querySelector('#content');
+    content.innerHTML = '';
+
     const container = createElement('div', 'container');
     // nav section
     const nav = createElement('nav', 'navigation');
     const ul = createElement('ul', 'ul-nav');
-    const li1 = createElement('li', 'nav-item');
-    const li2 = createElement('li', 'nav-item');
-    const li3 = createElement('li', 'nav-item');
+    const li1 = createElement('li', 'home');
+    const li2 = createElement('li', 'about');
+    const li3 = createElement('li', 'contact');
 
     text(li1, 'Home');
     text(li2, 'About');
@@ -71,11 +76,54 @@ const content = document.querySelector('#content');
 
     appendElements(mainFood, [steakDiv, burgerDiv,hotDogDiv, chickenDiv ]);
 
-
-    specialFunction1( [steakDiv,burgerDiv ,hotDogDiv, chickenDiv ])
-    
-  events([hotDogDiv, steakDiv, chickenDiv, burgerDiv], 'mouseover',hover);
-  events([hotDogDiv, steakDiv, chickenDiv, burgerDiv], 'mouseleave',mouseLeave)
   appendElements(containerMenu, [ mainFood]);
-    appendElements(content, [nav, containerMenu])
+
+  const desertsHeading = createElement('div', 'deserts-heading');
+  addClass(desertsHeading, 'sec');
+  const desertH1 = createElement('h1', 'desert-h1');
+  text(desertH1, 'Deserts');
+  appendElement(desertsHeading, desertH1);
+
+    const deserts = createElement('div', 'deserts');
+    const baklava = createElement('div', 'card');
+    addClass(baklava, 'baklava');
+    baklava.setAttribute('data-index', 4);
+    const cheeseCake = createElement('div', 'card');
+    addClass(cheeseCake, 'cheese-cake');
+    cheeseCake.setAttribute('data-index', 5);
+    appendElements(deserts, [baklava, cheeseCake]);
+    appendElements(containerMenu, [desertsHeading, deserts]);
+
+const drinksHeading = createElement('div', 'drinks-heading');
+const drinksh2 = createElement('h2', 'h2-drinks');
+    text(drinksh2, 'Drinks')
+addClass(drinksHeading, 'sec');
+  const drinks = createElement('div', 'drinks');
+  const sodas = createElement('div', 'card');
+  addClass(sodas, 'soda');
+  sodas.setAttribute('data-index', 7);
+  const tea = createElement('div', 'card');
+  addClass(tea, 'tea');
+  tea.setAttribute('data-index', 6);
+  appendElement(drinksHeading, drinksh2);
+  appendElements(drinks, [tea, sodas]);
+  appendElements(containerMenu, [drinksHeading, drinks]);
+
+  specialFunction1( [steakDiv,burgerDiv ,hotDogDiv, chickenDiv,baklava, cheeseCake, tea, sodas ])
+  events([hotDogDiv, steakDiv, chickenDiv, burgerDiv,baklava, cheeseCake, tea, sodas], 'mouseover',hover);
+  events([hotDogDiv, steakDiv, chickenDiv, burgerDiv,baklava, cheeseCake, tea, sodas], 'mouseleave',mouseLeave);
+
+
+//   footer
+    const footer = createElement('footer', 'footer');
+    const link = createElement('a', 'link-gitHub');
+    text(link, 'Kirill Gos')
+    text(footer, `Photos from Unsplash`)
+
+    appendElements(content, [nav, containerMenu,footer]);
+    const homeLink = document.querySelector('.home');
+    const aboutLink = document.querySelector('.about');
+    const contact = document.querySelector('.contact');
+    homeLink.addEventListener('click', menu);
+  aboutLink.addEventListener('click', about);
 }
