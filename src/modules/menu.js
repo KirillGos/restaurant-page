@@ -7,7 +7,7 @@ import { createElement,
       specialFunction1,
       mouseLeave,
     } from '../DOM/dom';
-
+import { contact } from './contact';
 import '../styles/main.css'
 import burgerImg from '../assets/burger.jpg';
 import steakImg from '../assets/steak.jpg';
@@ -126,4 +126,5 @@ addClass(drinksHeading, 'sec');
     const contact = document.querySelector('.contact');
     homeLink.addEventListener('click', menu);
   aboutLink.addEventListener('click', about);
+  contact.addEventListener('click', contact)
 }
