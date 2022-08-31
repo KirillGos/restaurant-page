@@ -11,7 +11,7 @@ import { createElement,
    import { menu } from '../modules/menu';
    import { about } from '../modules/about'
    import '../styles/main.css'
-
+   import map from '../assets/map.jpg';
 export  function contact() {
     const content = document.querySelector('#content');
         content.innerHTML = '';
@@ -43,13 +43,15 @@ export  function contact() {
         appendElement(headerHeading, headerHeadingH1)
         appendElement(containerMenu, headerHeading);
 
-        
+        const box = createElement('div', 'box');
+        const boxImg = createElement('div', 'boxImg');
+        text(box, 'Address:  123 Main Street, \n New York, NY 10030 ')
+        appendElement(box, boxImg);
+        appendElement(containerMenu, box)
 
     //   footer
         const footer = createElement('footer', 'footer');
-        const link = createElement('a', 'link-gitHub');
-        text(link, 'Kirill Gos')
-        text(footer, `Photos from Unsplash`)
+        footer.innerHTML = '<p>Photos from <a href="https://unsplash.com/">Unsplash</a></p>'
     
         appendElements(content, [nav, containerMenu,footer]);
         const homeLink = document.querySelector('.home');

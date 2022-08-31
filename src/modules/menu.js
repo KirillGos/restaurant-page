@@ -50,7 +50,7 @@ const content = document.querySelector('#content');
     appendElement(containerMenu, headerHeading)
     const menuHeader = createElement('div', 'main-food-heading');
     addClass(menuHeader, 'sec');
-    const headerH2 = createElement('h2');
+    const headerH2 = createElement('h1', 'header-h1');
     text(headerH2, 'Main Food');
     appendElement(menuHeader ,headerH2);
     appendElement(containerMenu, menuHeader);
@@ -95,8 +95,8 @@ const content = document.querySelector('#content');
     appendElements(containerMenu, [desertsHeading, deserts]);
 
 const drinksHeading = createElement('div', 'drinks-heading');
-const drinksh2 = createElement('h2', 'h2-drinks');
-    text(drinksh2, 'Drinks')
+const drinksH1 = createElement('h1', 'h1-drinks');
+    text(drinksH1, 'Drinks')
 addClass(drinksHeading, 'sec');
   const drinks = createElement('div', 'drinks');
   const sodas = createElement('div', 'card');
@@ -105,7 +105,7 @@ addClass(drinksHeading, 'sec');
   const tea = createElement('div', 'card');
   addClass(tea, 'tea');
   tea.setAttribute('data-index', 6);
-  appendElement(drinksHeading, drinksh2);
+  appendElement(drinksHeading, drinksH1);
   appendElements(drinks, [tea, sodas]);
   appendElements(containerMenu, [drinksHeading, drinks]);
 
@@ -116,9 +116,8 @@ addClass(drinksHeading, 'sec');
 
 //   footer
     const footer = createElement('footer', 'footer');
-    const link = createElement('a', 'link-gitHub');
-    text(link, 'Kirill Gos')
-    text(footer, `Photos from Unsplash`)
+
+   footer.innerHTML = '<p>Photos from <a href="https://unsplash.com/">Unsplash</a></p>'
 
     appendElements(content, [nav, containerMenu,footer]);
     const homeLink = document.querySelector('.home');

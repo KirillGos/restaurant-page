@@ -11,7 +11,7 @@ import { createElement,
    import { menu } from '../modules/menu'
    import { contact } from './contact';
    import '../styles/main.css'
-
+   import webpackImg from '../assets/webpack.jpg';
 
 
    export  function about() {
@@ -45,15 +45,16 @@ import { createElement,
         appendElement(headerHeading, headerHeadingH1)
         appendElement(containerMenu, headerHeading)
 
-    
-    
-    
+    const box = createElement('div', 'box');
+    const webpack = createElement('div', 'webpack');
+    text(box, 'I\'ve build this project to practice webpack \n and DOM manipulation');
+    appendElement(box, webpack);
+    appendElement(containerMenu, box)
     
     //   footer
         const footer = createElement('footer', 'footer');
         const link = createElement('a', 'link-gitHub');
-        text(link, 'Kirill Gos')
-        text(footer, `Photos from Unsplash`)
+        footer.innerHTML = '<p>Photos from <a href="https://unsplash.com/">Unsplash</a></p>'
     
         appendElements(content, [nav, containerMenu,footer]);
         const homeLink = document.querySelector('.home');
